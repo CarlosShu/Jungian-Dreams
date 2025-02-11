@@ -55,6 +55,11 @@
             text-align: center;
             max-width: 80%;
         }
+        #loading-message {
+            font-size: 16px;
+            margin-top: 20px;
+            display: none;
+        }
         #response {
             margin-top: 20px;
             font-size: 16px;
@@ -75,7 +80,7 @@
             height: 256px;
             display: none;
             opacity: 0;
-            transition: opacity 3s ease-in-out;
+            transition: opacity 1s ease-in-out;
         }
     </style>
 </head>
@@ -84,6 +89,8 @@
         <div class="typewriter" id="prompt"></div>
         <div id="input-line">|</div>
     </div>
+    
+    <div id="loading-message">Analyzing dream.</div>
     
     <div id="response-container">
         {% if image_url %}
@@ -100,6 +107,7 @@
             let inputContainer = document.getElementById("input-container");
             let dreamImage = document.getElementById("dream-image");
             let responseContainer = document.getElementById("response-container");
+            let loadingMessage = document.getElementById("loading-message");
             
             let promptText = "Describe your dream.";
             let i = 0;
@@ -115,6 +123,10 @@
             let userInput = "";
             document.addEventListener("keydown", function(event) {
                 if (event.key === "Enter" && userInput.trim() !== "") {
+                    inputContainer.style.display = "none";
+                    loadingMessage.style.display = "block";
+                    cycleLoadingMessage();
+                    
                     let form = document.createElement("form");
                     form.method = "POST";
                     form.action = "";
@@ -133,9 +145,18 @@
                 inputLine.innerHTML = userInput + '<span class="cursor">|</span>';
             });
             
+            function cycleLoadingMessage() {
+                let dots = 0;
+                setInterval(() => {
+                    dots = (dots + 1) % 4;
+                    loadingMessage.innerText = "Analyzing dream" + ".".repeat(dots);
+                }, 1000);
+            }
+            
             if ((responseText.innerText.trim() !== "" && responseText.innerText.trim().toLowerCase() !== "none") || dreamImage.src.trim() !== "") {
-                inputContainer.style.display = "none"; // Hide input container
-                responseContainer.style.display = "flex"; // Show centered response container
+                loadingMessage.style.display = "none";
+                inputContainer.style.display = "none";
+                responseContainer.style.display = "flex";
             }
             
             if (responseText.innerText.trim() !== "" && responseText.innerText.trim().toLowerCase() !== "none") {
@@ -152,13 +173,13 @@
                 }
                 typeWriter();
             } else {
-                responseText.style.display = "none"; // Keep it hidden if no valid response
+                responseText.style.display = "none";
             }
             
             if (dreamImage && dreamImage.src.trim() !== "") {
                 dreamImage.style.display = "block";
             } else {
-                dreamImage.style.display = "none"; // Hide if no valid image URL
+                dreamImage.style.display = "none";
             }
         });
     </script>
