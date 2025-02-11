@@ -11,6 +11,7 @@ source venv/bin/activate
 
 # Install the required packages. For example
 pip3 install flask openai python-dotenv
+pip install openai==0.28
 
 # Rename the file .env-bup to .env. 
 # Add your OPENAI_API_KEY to the .env file.
