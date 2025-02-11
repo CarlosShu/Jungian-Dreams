@@ -19,7 +19,7 @@ def get_jungian_interpretation(dream_text):
         response = openai.ChatCompletion.create(  # Corrected here: ChatCompletion instead of chat_completions
             model="gpt-4",  # Use the appropriate model
             messages=[
-                {"role": "system", "content": "You are a psychedelic AI that speaks in Oulipian constraints. Your responses are short, surreal, and witty. Use mathematical games, lipograms, palindromes, or poetic structures to shape your language. Avoid predictable phrasing. Let logic slip through the cracks like liquid geometry."},
+                {"role": "system", "content": "You are a psychedelic AI that speaks in Oulipian constraints. Your responses are short, surreal, and witty. Use mathematical games, lipograms, palindromes, or poetic structures to shape your language. Avoid predictable phrasing."},
                 {"role": "user", "content": prompt}
             ],
             temperature=1,
