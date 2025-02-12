@@ -1,19 +1,9 @@
-# minimal-flask-app
-Minimal code for Flask app making calls to the OpenAI API
+Jungian Dream Analysis Machine
 
-```
-# Create virtual environment
-python3 -m venv ./venv
+I found the theme of this assignment to be quite fitting for what the course offers in terms of exploring new ways to creatively express ourselves through technical means. Psychology, much like art, is deeply fundamental, as it delves into the wild, untamed space of the mind, where thoughts and emotions come together to manifest something visually unique. In this assignment, we explore the visual and symbolic aspects of dreams through an analytical approach inspired by Carl Jung.
 
-# Activate your virtual environment
-source venv/bin/activate
+Similar to the previous assignment, I sought the aid of OpenAI to guide me through the technical process. Through repeated back-and-forth interactions, I ended up learning far more than I had anticipated. I won’t go into much detail regarding the technical integrations of my Python code, but one of the main challenges I encountered was having to rely on an older version of OpenAI to generate images. I suspect this issue was due to my code, so I doubt it will persist in future projects. Another amusing element that I happened to run into was the fact that OpenAI’s servers went down while I was working on the assignment, leaving me momentarily confused as to why I couldn’t generate any images. Aside from these minor setbacks, there weren’t any major issues, and overall, I had a fun time, especially when it came to the creative aspects and making my interface look pretty!
 
-# Install the required packages. For example
-pip3 install flask openai==0.28 python-dotenv gunicorn
+For my user prompts, I instructed the AI to act as a dream interpreter based on Carl Jung’s psychological theories. I also asked it to adopt a poetic, fortune-teller-like tone to enhance the experience. Following this, I triggered another prompt to generate images. Both prompts are dependent on user input. While functionality was my top priority, I also focused on design! My UI is clean and simple but visually reflective of the dream analysis theme. The user finds themselves in a black void, almost like in their own mind, where they are asked to describe what they can recall from their dream. Once entered, a loading screen appears, indicating that the dream is being analyzed. I implemented this because it takes about a minute to generate both the image and the text, and I wouldn’t want the user to think that the site has abandoned them. Finally, the image fades in, and the AI-generated interpretation is displayed. All of these elements are seamlessly integrated within the HTML file. While my code isn’t as clean and as optimized as it can be, I wanted to push it even further, but perhaps I’ll save that energy for another assignment or a future project!
 
-# Rename the file .env-bup to .env. 
-# Add your OPENAI_API_KEY to the .env file.
-
-# Run the app
-python3 app.py
-```
+I conducted extensive testing with the image generation and ended up using half of my five-dollar OpenAI deposit, but it was a worthy sacrifice. The generated images are psychedelic, making them perfect for representing how dreams often feel vague, surreal, and more emotionally driven than anything else. This concept is also explored in Inception, which is one of my favorite films of all time.
